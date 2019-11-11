@@ -1,4 +1,4 @@
-package ink.ptms.mnemosyne.data
+package ink.ptms.mnemosyne.internal.storeage
 
 import io.izzel.taboolib.module.db.source.DBSource
 import io.izzel.taboolib.module.db.sql.SQLHost
@@ -7,7 +7,7 @@ import io.izzel.taboolib.module.inject.TSchedule
 import ink.ptms.mnemosyne.Mnemosyne
 import javax.sql.DataSource
 
-object InternalDatabase : Database() {
+object StorageInternal : Storage() {
 
     private var host: SQLHost? = null
     private var table: SQLTable? = null
