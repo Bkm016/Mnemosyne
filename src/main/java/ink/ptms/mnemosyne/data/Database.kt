@@ -1,4 +1,4 @@
-package io.ptms.ink.mnemosyne.data
+package ink.ptms.mnemosyne.data
 
 /**
  * @Author sky

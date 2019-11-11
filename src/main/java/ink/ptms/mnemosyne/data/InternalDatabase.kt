@@ -1,10 +1,10 @@
-package io.ptms.ink.mnemosyne.data
+package ink.ptms.mnemosyne.data
 
 import io.izzel.taboolib.module.db.source.DBSource
 import io.izzel.taboolib.module.db.sql.SQLHost
 import io.izzel.taboolib.module.db.sql.SQLTable
 import io.izzel.taboolib.module.inject.TSchedule
-import io.ptms.ink.mnemosyne.Mnemosyne
+import ink.ptms.mnemosyne.Mnemosyne
 import javax.sql.DataSource
 
 object InternalDatabase : Database() {
