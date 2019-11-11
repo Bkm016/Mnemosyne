@@ -1,0 +1,5 @@
+name: Mnemosyne
+main: io.ptms.ink.mnemosyne.Mnemosyne
+api-version: 1.13
+
+version: ${version}
