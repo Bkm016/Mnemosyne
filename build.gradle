@@ -5,7 +5,7 @@ plugins {
 }
 
 configurations {
-    group = 'io.ptms.ink.mnemosyne'
+    group = 'ink.ptms.mnemosyne'
     version = '1.0-SNAPSHOT'
 
     sourceCompatibility = 1.8

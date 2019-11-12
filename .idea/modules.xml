@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.iml" filepath="$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.main.iml" filepath="$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.test.iml" filepath="$PROJECT_DIR$/.idea/modules/io.ptms.ink.mnemosyne.Mnemosyne.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.iml" filepath="$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ink.ptms.mnemosyne.Mnemosyne.test.iml" />
     </modules>
   </component>
 </project>

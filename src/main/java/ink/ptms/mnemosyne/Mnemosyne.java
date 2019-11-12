@@ -1,7 +1,7 @@
 package ink.ptms.mnemosyne;
 
-import ink.ptms.mnemosyne.api.InternalAPI;
-import ink.ptms.mnemosyne.api.MnemosyneAPI;
+import ink.ptms.mnemosyne.api.APIInternal;
+import ink.ptms.mnemosyne.api.API;
 import io.izzel.taboolib.loader.Plugin;
 import io.izzel.taboolib.module.config.TConfig;
 import io.izzel.taboolib.module.inject.TInject;
@@ -16,7 +16,7 @@ public final class Mnemosyne extends Plugin {
     public static final TConfig CONF = null;
     @TInject
     public static final TLogger LOGGER = null;
+    public static final API API = APIInternal.INSTANCE;
     public static final Storage STORAGE = StorageInternal.INSTANCE;
-    public static final MnemosyneAPI API = InternalAPI.INSTANCE;
 
 }
