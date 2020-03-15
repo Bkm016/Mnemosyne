@@ -1,18 +1,24 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '4.0.4'
     id 'org.jetbrains.kotlin.jvm' version '1.2.41'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+}
+
+ext {
+    main = 'ink.ptms.mnemosyne'
+    author = '坏黑'
+    version = '1.0-SNAPSHOT'
+    redefine = true
 }
 
 configurations {
-    group = 'ink.ptms.mnemosyne'
-    version = '1.0-SNAPSHOT'
+    group = rootProject.ext.main
+    version = rootProject.ext.version
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
     tasks.build.dependsOn tasks.shadowJar
-
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
     }
@@ -21,30 +27,37 @@ configurations {
 }
 
 repositories {
-     maven { url "http://ptms.ink:8081/repository/codemc-nms/" }
-     maven { url "http://ptms.ink:8081/repository/maven-releases/" }
-     mavenCentral()
+    maven { url "http://repo.ptms.ink/repository/codemc-nms/" }
+    maven { url "http://repo.ptms.ink/repository/maven-releases/" }
+    mavenCentral()
 }
 
 dependencies {
-    compile 'org.spigotmc:spigot:1.14.4-R0.1-SNAPSHOT'
-    compile 'io.izzel.taboolib:TabooLib:5.11:all'
-    compile 'io.izzel.taboolib.loader:TabooLibloader:1.2:all'
+    compile 'org.spigotmc:spigot:1.15.2-R0.1-20200219.223634-9'
+    compile 'io.izzel.taboolib:TabooLib:5.2:all'
+    compile 'io.izzel.taboolib:TabooLibLoader:1.7:all'
     compile "org.jetbrains.kotlin:kotlin-stdlib:1.2.41"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.41"
+    compileOnly fileTree(dir: 'libs', includes: ['*.jar'])
 }
 
 shadowJar {
     dependencies {
-        include dependency('io.izzel.taboolib.loader:.*')
+        include dependency('io.izzel.taboolib:TabooLibLoader:.*')
     }
-    relocate 'io.izzel.taboolib.loader', project.group
+    relocate 'io.izzel.taboolib.loader', project.group + ".boot"
 }
 
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'plugin.yml'
-        expand 'version': project.version
+        expand(
+                'name': rootProject.name,
+                'main': rootProject.ext.redefine ? (rootProject.ext.main + ".boot.PluginTransfer") : (rootProject.ext.main + "." + rootProject.name),
+                'mainTransfer': rootProject.ext.redefine ? (rootProject.ext.main + "." + rootProject.name) : "null",
+                'version': rootProject.ext.version,
+                'author': rootProject.ext.author
+        )
     }
 }
 

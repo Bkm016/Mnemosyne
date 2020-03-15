@@ -1,5 +1,12 @@
-name: Mnemosyne
-main: ink.ptms.mnemosyne.Mnemosyne
-api-version: 1.13
 
+
+#         Powered by TabooLib 5.0         #
+
+
+name: ${name}
+main: ${main}
+main-transfer: ${mainTransfer}
 version: ${version}
+author: ${author}
+
+api-version: 1.13
