@@ -7,7 +7,7 @@ plugins {
 ext {
     main = 'ink.ptms.mnemosyne'
     author = '坏黑'
-    version = '1.0-SNAPSHOT'
+    version = '1.0-BETA'
     redefine = true
 }
 
