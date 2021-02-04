@@ -5,8 +5,11 @@
 
 name: ${name}
 main: ${main}
-main-transfer: ${mainTransfer}
 version: ${version}
-author: ${author}
+authors: ['坏黑']
 
 api-version: 1.13
+
+lib-download: true
+lib-version: ${libVersion}
+loader-version: ${loaderVersion}

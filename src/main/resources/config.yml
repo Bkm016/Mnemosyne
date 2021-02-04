@@ -5,3 +5,5 @@ Database:
   password: root
   database: test
   table: mnemosyne_database
+
+Join: false

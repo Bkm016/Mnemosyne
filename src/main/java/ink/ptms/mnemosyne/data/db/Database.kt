@@ -1,13 +1,11 @@
 package ink.ptms.mnemosyne.data.db
 
+import ink.ptms.mnemosyne.Mnemosyne
 import ink.ptms.mnemosyne.MnemosyneAPI
 import ink.ptms.mnemosyne.data.Address
 import io.izzel.taboolib.loader.Plugin
 import io.izzel.taboolib.module.db.source.DBSource
-import io.izzel.taboolib.module.db.sql.SQLColumn
-import io.izzel.taboolib.module.db.sql.SQLColumnType
-import io.izzel.taboolib.module.db.sql.SQLHost
-import io.izzel.taboolib.module.db.sql.SQLTable
+import io.izzel.taboolib.module.db.sql.*
 import io.izzel.taboolib.module.db.sql.query.Where
 import io.izzel.taboolib.module.inject.TFunction
 import javax.sql.DataSource
@@ -18,10 +16,10 @@ import javax.sql.DataSource
  */
 object Database {
 
-    val host = SQLHost(MnemosyneAPI.conf!!.getConfigurationSection("Database"), Plugin.getPlugin(), true)
+    val host = SQLHost(MnemosyneAPI.conf!!.getConfigurationSection("Database"), Mnemosyne.plugin, true)
     val table = SQLTable(MnemosyneAPI.conf!!.getString("Database.table"))
             .column("\$id")
-            .column(SQLColumn(SQLColumnType.VARCHAR, 36, "username"))
+            .column(SQLColumn(SQLColumnType.VARCHAR, 36, "username").columnOptions(SQLColumnOption.KEY))
             .column(SQLColumn(SQLColumnType.VARCHAR, 36, "address"))
             .column(SQLColumn(SQLColumnType.BIGINT, "date"))!!
 

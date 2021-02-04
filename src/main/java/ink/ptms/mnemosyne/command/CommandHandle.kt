@@ -28,7 +28,7 @@ class CommandHandle : BaseMainCommand() {
     @SubCommand(description = "导入日志")
     fun importLogs(sender: CommandSender, args: Array<String>) {
         notify(sender, "正在导入...")
-        Bukkit.getScheduler().runTaskAsynchronously(Plugin.getPlugin(), Runnable {
+        Bukkit.getScheduler().runTaskAsynchronously(Mnemosyne.plugin, Runnable {
             val time = System.currentTimeMillis();
             Arrays.stream(File("logs").listFiles()).forEachOrdered { file ->
                 notify(sender, "  &8${file.name}")
@@ -71,7 +71,7 @@ class CommandHandle : BaseMainCommand() {
                 notify(sender, "  - &8$it")
             }
         }
-        Bukkit.getScheduler().runTaskAsynchronously(Plugin.getPlugin(), Runnable {
+        Bukkit.getScheduler().runTaskAsynchronously(Mnemosyne.plugin, Runnable {
             notify(sender, "查询结果")
             MnemosyneAPI.search().source(Database.select(time)).target(address).block(*block).time(time).run().forEach {
                 notify(sender, "  - &8$it")

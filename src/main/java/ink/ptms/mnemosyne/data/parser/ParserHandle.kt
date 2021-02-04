@@ -5,7 +5,6 @@ import io.izzel.taboolib.util.Files
 import java.io.File
 import java.io.FileInputStream
 import java.util.zip.GZIPInputStream
-import kotlin.streams.toList
 
 object ParserHandle {
 
@@ -16,14 +15,14 @@ object ParserHandle {
         val import = HashSet<Address>()
         if (file.name.endsWith(".log")) {
             Files.read(file) {
-                import.addAll(importText(it.lines().toList()))
+                import.addAll(importText(it.lineSequence().toList()))
             }
         }
         if (file.name.endsWith(".log.gz")) {
             FileInputStream(file).use { fileInputStream ->
                 GZIPInputStream(fileInputStream).use { gzipInputStream ->
                     Files.read(gzipInputStream) { r ->
-                        import.addAll(importText(r.lines().toList()))
+                        import.addAll(importText(r.lineSequence().toList()))
                     }
                 }
             }

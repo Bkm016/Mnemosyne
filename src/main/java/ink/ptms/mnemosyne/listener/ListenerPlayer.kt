@@ -1,8 +1,11 @@
 package ink.ptms.mnemosyne.listener
 
+import ink.ptms.mnemosyne.Mnemosyne
+import ink.ptms.mnemosyne.MnemosyneAPI
 import ink.ptms.mnemosyne.data.Address
 import ink.ptms.mnemosyne.data.db.Database
 import ink.ptms.mnemosyne.data.parser.ParserHandle
+import io.izzel.taboolib.kotlin.Tasks
 import io.izzel.taboolib.loader.Plugin
 import io.izzel.taboolib.module.inject.TListener
 import org.bukkit.Bukkit
@@ -20,8 +23,8 @@ class ListenerPlayer : Listener {
 
     @EventHandler
     fun e(e: PlayerJoinEvent) {
-        Bukkit.getScheduler().runTaskAsynchronously(Plugin.getPlugin(), Runnable {
-            Database.insert(listOf(Address(e.player.name, e.player.address!!.hostName)))
-        })
+        if (MnemosyneAPI.conf!!.getBoolean("Join")) {
+            MnemosyneAPI.include(e.player)
+        }
     }
 }
