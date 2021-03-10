@@ -18,7 +18,7 @@ object Database {
 
     val host = SQLHost(MnemosyneAPI.conf!!.getConfigurationSection("Database"), Mnemosyne.plugin, true)
     val table = SQLTable(MnemosyneAPI.conf!!.getString("Database.table"))
-            .column("\$id")
+            .column(SQLColumn.PRIMARY_KEY_ID)
             .column(SQLColumn(SQLColumnType.VARCHAR, 36, "username").columnOptions(SQLColumnOption.KEY))
             .column(SQLColumn(SQLColumnType.VARCHAR, 36, "address"))
             .column(SQLColumn(SQLColumnType.BIGINT, "date"))!!
